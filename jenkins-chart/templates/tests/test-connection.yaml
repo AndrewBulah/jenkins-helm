@@ -10,5 +10,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['jenkins:{{ .Values.service.ports[0].port }}']
+      args: 'jenkins:{{ .Values.service.ports[0].port }}'
   restartPolicy: Never
