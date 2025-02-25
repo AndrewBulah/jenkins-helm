@@ -8,11 +8,19 @@ spec:
   selector:
     matchLabels:
       app: jenkins
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   template:
     metadata:
       labels:
         app: jenkins
     spec:
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
       containers:
         - name: jenkins
           image: {{ .Values.jenkins.image }}
@@ -43,6 +51,18 @@ spec:
               subPath: jenkins.yaml
             - name: jenkins-config
               mountPath: /var/jenkins_home
+          livenessProbe:
+            httpGet:
+              path: /login
+              port: http-port
+            initialDelaySeconds: 120
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /login
+              port: http-port
+            initialDelaySeconds: 60
+            periodSeconds: 10
       volumes:
         - name: jenkins-auth-config
           configMap:

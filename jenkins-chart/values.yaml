@@ -5,11 +5,11 @@ jenkins:
   password: "jenkins-secret"
   resources:
     requests:
-      cpu: 2
+      cpu: 1
       memory: 2Gi
     limits:
-      cpu: 3
-      memory: 3Gi
+      cpu: 2
+      memory: 4Gi
   nfs:
     server: 192.168.56.101
     path: /exports/nfs
