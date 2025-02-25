@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  jenkins:
+  - apiVersion: v2
+    appVersion: 2.401.2
+    created: "2025-02-25T12:47:05.247185449Z"
+    description: Jenkins CI/CD Server
+    digest: c3cfff6634fd3864028d214eb6ce9095fd90d0bdb953ad0236792598b070e769
+    name: jenkins
+    urls:
+    - jenkins-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-02-25T12:47:05.246478062Z"
