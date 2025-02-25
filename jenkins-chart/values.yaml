@@ -1,0 +1,30 @@
+namespace: ci-cd
+
+jenkins:
+  image: jfrog.it-academy.by/public/jenkins-ci:andrew
+  password: "jenkins-secret"
+  resources:
+    requests:
+      cpu: 2
+      memory: 2Gi
+    limits:
+      cpu: 3
+      memory: 3Gi
+  nfs:
+    server: 192.168.56.101
+    path: /exports/nfs
+
+ingress:
+  enabled: true
+  host: jenkins.k8s-1.sa
+  className: nginx
+
+service:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+    - name: jnlp
+      port: 50000
+      targetPort: 50000
