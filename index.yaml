@@ -3,11 +3,11 @@ entries:
   jenkins:
   - apiVersion: v2
     appVersion: 2.401.2
-    created: "2025-02-25T11:15:21.912010074Z"
+    created: "2025-02-25T12:03:42.076083508Z"
     description: Jenkins CI/CD Server
     digest: d079feb901477642290e16a18362414bac8f7200dcc778ac36141c1ac373d735
     name: jenkins
     urls:
-    - https://raw.githubusercontent.com/AndrewBulah/jenkins-helm/main/jenkins-0.1.0.tgz
+    - jenkins-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-25T11:15:21.911641158Z"
+generated: "2025-02-25T12:03:42.075722224Z"
