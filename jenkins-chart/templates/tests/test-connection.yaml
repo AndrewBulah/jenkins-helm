@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "jenkins-test-connection"
+  namespace: {{ .Values.namespace }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  args: ['jenkins:{{ (index .Values.service.ports 0).port }}'] 
+  restartPolicy: Never
